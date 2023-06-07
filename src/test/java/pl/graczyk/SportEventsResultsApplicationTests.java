@@ -1,4 +1,4 @@
-package pl.graczyk.sporteventsresults;
+package pl.graczyk;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

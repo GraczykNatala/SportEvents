@@ -17,12 +17,19 @@ public class DataReader {
 
     public static final String DATA_PATH = "src/main/resources/data/data.json";
 
-    public List<Event> eventList() throws FileNotFoundException {
+    public List<Event> eventList() {
 
         JsonParser parser = new JsonParser();
-        Object obj =parser.parse(new FileReader(DATA_PATH)) ;
-        JsonObject jsonObject = (JsonObject) obj;
-        JsonArray eventData = (JsonArray) jsonObject.get("Events");
-        return new Gson().fromJson(eventData, new TypeToken<List<Event>>(){}.getType());
+        Object obj;
+        try {
+            obj = parser.parse(new FileReader(DATA_PATH));
+        }
+        catch(FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        JsonObject jsonObject;
+        jsonObject = (JsonObject)obj;
+        JsonArray eventData = (JsonArray)jsonObject.get("Events");
+        return new Gson().fromJson(eventData, new TypeToken<List<Event>>() {}.getType());
     }
 }

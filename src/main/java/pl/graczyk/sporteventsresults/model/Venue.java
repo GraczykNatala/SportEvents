@@ -1,8 +1,6 @@
 package pl.graczyk.sporteventsresults.model;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Getter
@@ -14,7 +12,8 @@ public class Venue {
     int capacity;
     String city_name;
     String country_name;
-    String map_coordintes;
+    String map_coordinates;
     String country_code;
+
 
 }
